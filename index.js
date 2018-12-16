@@ -30,12 +30,7 @@ class ChartistGraph extends Component {
     let options = config.options || {};
     let responsiveOptions = config.responsiveOptions || [];
     let event;
-
-    if (this.chartist) {
-      this.chartist.update(data, options, responsiveOptions);
-    } else {
       this.chartist = new Chartist[type](this.chart, data, options, responsiveOptions);
-
       if (config.listener) {
         for (event in config.listener) {
           if (config.listener.hasOwnProperty(event)) {
@@ -43,7 +38,7 @@ class ChartistGraph extends Component {
           }
         }
       }
-    }
+    
 
     return this.chartist;
   }
